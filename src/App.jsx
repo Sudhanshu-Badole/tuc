@@ -28,7 +28,7 @@ export default function App() {
       <Work />
       <Testimonials />
       <Contact />
-      <Footer theme={theme} />
+      <Footer />
     </>
   )
 }
