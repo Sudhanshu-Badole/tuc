@@ -1,0 +1,89 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── DARK MODE (default) ── */
+:root {
+  --bg:        #0A0D0B;
+  --bg2:       #121715;
+  --bg3:       #17201B;
+  --primary:   #1E5A38;
+  --primary-h: #2F7A4D;
+  --primary-s: #5FA777;
+  --text:      #F4F5F3;
+  --text-muted:#A5ADA8;
+  --divider:   #3A433D;
+  --pearl-base:#1D1F1E;
+  --pearl-mid: #4A4F4C;
+  --pearl-hi:  #D7DCD8;
+  --tag-bg:    rgba(47,122,77,0.18);
+  --tag-color: #5FA777;
+  --card-bg:   #17201B;
+  --input-bg:  #121715;
+}
+
+/* ── LIGHT MODE ── */
+[data-theme="light"] {
+  --bg:        #F7F8F6;
+  --bg2:       #EEF1ED;
+  --bg3:       #E4E9E3;
+  --primary:   #1F5C3A;
+  --primary-h: #2E7A4F;
+  --primary-s: #7FA68D;
+  --text:      #111312;
+  --text-muted:#4A4F4C;
+  --divider:   #C8CEC9;
+  --pearl-base:#111312;
+  --pearl-mid: #707772;
+  --pearl-hi:  #E6ECE7;
+  --tag-bg:    rgba(31,92,58,0.12);
+  --tag-color: #1F5C3A;
+  --card-bg:   #E4E9E3;
+  --input-bg:  #EEF1ED;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 100px 0; }
+.section-head { text-align: center; margin-bottom: 56px; }
+.section-head h2 { font-size: 2.4rem; margin-top: 10px; }
+
+.tag {
+  display: inline-block;
+  background: var(--tag-bg);
+  color: var(--tag-color);
+  padding: 5px 16px; border-radius: 20px;
+  font-size: 0.8rem; letter-spacing: 1.5px;
+  text-transform: uppercase; font-weight: 600;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--primary);
+  color: #F4F5F3;
+  padding: 13px 30px; border-radius: 8px;
+  text-decoration: none; font-weight: 600;
+  border: 2px solid var(--primary);
+  cursor: pointer; font-size: 0.95rem;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+  font-family: inherit;
+}
+.btn:hover { background: var(--primary-h); border-color: var(--primary-h); color: #fff; }
+
+.btn.outline {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--divider);
+}
+.btn.outline:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}

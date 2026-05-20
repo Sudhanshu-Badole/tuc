@@ -1,0 +1,21 @@
+.about { background: var(--bg); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+.about-img {
+  height: 420px; border-radius: 16px;
+  background: radial-gradient(circle at 35% 30%,
+    #D7DCD8 0%, #4A4F4C 35%, #1D1F1E 100%);
+  position: relative; overflow: hidden;
+  box-shadow: 0 0 60px rgba(47,122,77,0.12);
+}
+.about-img::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(30,90,56,0.2), transparent);
+}
+.about-text h2 { font-size: 2.2rem; margin: 12px 0 18px; color: var(--text); }
+.about-text p { color: var(--text-muted); margin-bottom: 16px; }
+.about-text .btn { margin-top: 10px; }
+
+@media (max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-img { height: 280px; }
+}
