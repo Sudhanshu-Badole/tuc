@@ -1,13 +1,13 @@
 .navbar {
   position: fixed; top: 0; width: 100%; z-index: 100;
-  padding: 44px 0;
+  padding: 60px 0;
   transition: background 0.3s, padding 0.3s, border-color 0.3s;
 }
 .navbar.scrolled {
   background: color-mix(in srgb, var(--bg) 92%, transparent);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--divider);
-  padding: 28px 0;
+  padding: 36px 0;
 }
 
 .nav-inner {
@@ -20,25 +20,18 @@
   text-decoration: none;
 }
 .logo-icon {
-  height: 140px;
-  width: 360px;
+  height: 80px;
+  width: auto;
+  max-width: 300px;
   object-fit: contain;
   object-position: left center;
-  border-radius: 10px;
-  transition: opacity 0.3s;
-}
-.logo-icon.light {
-  height: 140px;
-  width: 360px;
-  object-fit: contain;
-  object-position: left center;
-  border-radius: 10px;
+  display: block;
   transition: opacity 0.3s;
 }
 .logo:hover .logo-icon { opacity: 0.85; }
 
 @media (max-width: 700px) {
-  .logo-icon { height: 56px; width: 140px; }
+  .logo-icon { height: 52px; max-width: 200px; }
 }
 .logo-text {
   font-size: 1.05rem; color: var(--text);
@@ -52,7 +45,7 @@
 /* ── Nav links ── */
 nav a {
   color: var(--text-muted); text-decoration: none;
-  margin-left: 28px; font-size: 0.92rem;
+  margin-left: 36px; font-size: 1.05rem;
   font-weight: 700;
   transition: color 0.2s;
 }
@@ -65,7 +58,7 @@ nav a:hover { color: var(--text); }
   background: var(--bg3);
   border: 1px solid var(--divider);
   border-radius: 8px;
-  width: 38px; height: 38px;
+  width: 46px; height: 46px;
   display: flex; align-items: center; justify-content: center;
   cursor: pointer;
   color: var(--text);

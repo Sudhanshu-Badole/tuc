@@ -21,7 +21,7 @@ export default function Navbar({ theme, toggleTheme }) {
 
         <a href="#" className="logo">
           <img
-            src={theme === 'dark' ? '/Darkthemelogo.jpeg' : '/Lightthemelogo.jpeg'}
+            src={theme === 'dark' ? '/Darkthemelogo.png' : '/whitethemelogo.png'}
             alt="TheUnidentified"
             className={`logo-icon ${theme === 'light' ? 'light' : ''}`}
           />
