@@ -30,3 +30,7 @@
 .testi-author span { color: var(--text-muted); font-size: 0.82rem; }
 
 @media (max-width: 900px) { .testi-grid { grid-template-columns: 1fr; } }
+@media (max-width: 640px) {
+  .testi-card { padding: 22px 18px; }
+  .testi-card > p { font-size: 0.92rem; }
+}

@@ -12,15 +12,15 @@ export default function Testimonials() {
   return (
     <section className="testimonials section">
       <div className="container">
-        <div className="section-head">
+        <div className="section-head reveal">
           <span className="tag">Testimonials</span>
           <h2>What Clients Say</h2>
         </div>
         <div className="testi-grid">
-          {testimonials.map(t => (
-            <div className="testi-card" key={t.name}>
+          {testimonials.map((t, i) => (
+            <div className={`testi-card reveal reveal-delay-${i + 1}`} key={t.name}>
               <div className="stars">
-                {[...Array(5)].map((_, i) => <StarIcon key={i} fontSize="small" />)}
+                {[...Array(5)].map((_, j) => <StarIcon key={j} fontSize="small" />)}
               </div>
               <FormatQuoteIcon className="quote-icon" />
               <p>{t.text}</p>

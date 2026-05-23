@@ -1,13 +1,15 @@
 .navbar {
   position: fixed; top: 0; width: 100%; z-index: 100;
-  padding: 60px 0;
-  transition: background 0.3s, padding 0.3s, border-color 0.3s;
+  padding: 52px 0;
+  transition: background 0.4s, padding 0.4s, box-shadow 0.4s;
 }
 .navbar.scrolled {
-  background: color-mix(in srgb, var(--bg) 92%, transparent);
-  backdrop-filter: blur(14px);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--divider);
-  padding: 36px 0;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  padding: 28px 0;
 }
 
 .nav-inner {
@@ -26,64 +28,95 @@
   object-fit: contain;
   object-position: left center;
   display: block;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
 }
-.logo:hover .logo-icon { opacity: 0.85; }
-
-@media (max-width: 700px) {
-  .logo-icon { height: 52px; max-width: 200px; }
-}
-.logo-text {
-  font-size: 1.05rem; color: var(--text);
-  letter-spacing: 0.3px;
-}
-.logo-text strong {
-  color: var(--primary-h);
-  font-weight: 800;
-}
+.logo:hover .logo-icon { opacity: 0.85; transform: scale(1.04); }
 
 /* ── Nav links ── */
+nav { display: flex; align-items: center; }
 nav a {
+  position: relative;
   color: var(--text-muted); text-decoration: none;
   margin-left: 36px; font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: 0.3px;
   transition: color 0.2s;
 }
+nav a::after {
+  content: '';
+  position: absolute; bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: var(--primary-s);
+  border-radius: 2px;
+  transition: width 0.25s ease;
+}
 nav a:hover { color: var(--text); }
+nav a:hover::after { width: 100%; }
 
 /* ── Right side ── */
-.nav-right { display: flex; align-items: center; gap: 14px; }
+.nav-right { display: flex; align-items: center; gap: 12px; }
 
 .theme-toggle {
   background: var(--bg3);
   border: 1px solid var(--divider);
-  border-radius: 8px;
-  width: 46px; height: 46px;
+  border-radius: 50%;
+  width: 44px; height: 44px;
   display: flex; align-items: center; justify-content: center;
   cursor: pointer;
   color: var(--text);
-  transition: background 0.2s, border-color 0.2s;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
-.theme-toggle svg { font-size: 1.1rem !important; }
-.theme-toggle:hover { background: var(--bg2); border-color: var(--primary-s); }
+.theme-toggle svg { font-size: 1.15rem !important; }
+.theme-toggle:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  transform: rotate(20deg);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--primary-s) 50%, transparent);
+}
+
+.nav-right .btn {
+  padding: 11px 26px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 16px color-mix(in srgb, var(--primary) 35%, transparent);
+  transition: background 0.25s, box-shadow 0.25s, transform 0.2s;
+}
+.nav-right .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px color-mix(in srgb, var(--primary-s) 45%, transparent);
+}
 
 /* ── Hamburger ── */
 .hamburger {
   display: none; align-items: center; justify-content: center;
-  background: none; border: none; cursor: pointer; padding: 4px;
+  background: var(--bg3); border: 1px solid var(--divider);
+  border-radius: 10px; cursor: pointer; padding: 6px;
   color: var(--text);
+  transition: background 0.2s;
 }
-.hamburger svg { font-size: 1.6rem !important; }
+.hamburger:hover { background: var(--bg2); }
+.hamburger svg { font-size: 1.5rem !important; }
 
 @media (max-width: 700px) {
+  .logo-icon { height: 52px; max-width: 200px; }
   .hamburger { display: flex; }
   .nav-right .btn { display: none; }
   nav {
     display: none; position: absolute; top: 100%; left: 0; right: 0;
-    background: var(--bg2);
+    background: color-mix(in srgb, var(--bg2) 97%, transparent);
+    backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--divider);
-    flex-direction: column; padding: 20px 24px; gap: 16px;
+    flex-direction: column; padding: 24px;
+    gap: 4px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
   }
   nav.open { display: flex; }
-  nav a { margin-left: 0; font-size: 1rem; }
+  nav a {
+    margin-left: 0; font-size: 1.05rem;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--divider);
+  }
+  nav a:last-child { border-bottom: none; }
 }

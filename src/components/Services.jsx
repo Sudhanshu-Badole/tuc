@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import BrushIcon from '@mui/icons-material/Brush'
 import CodeIcon from '@mui/icons-material/Code'
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid'
@@ -15,21 +16,43 @@ const services = [
   { icon: <CloudIcon />,        title: 'Cloud Solutions',   desc: 'Scalable cloud infrastructure and deployment pipelines.' },
 ]
 
+function TiltCard({ children, className }) {
+  const cardRef = useRef(null)
+
+  const handleMove = e => {
+    const card = cardRef.current
+    const { left, top, width, height } = card.getBoundingClientRect()
+    const x = (e.clientX - left) / width - 0.5
+    const y = (e.clientY - top) / height - 0.5
+    card.style.transform = `perspective(600px) rotateY(${x * 14}deg) rotateX(${-y * 14}deg) translateY(-6px)`
+  }
+
+  const handleLeave = () => {
+    cardRef.current.style.transform = 'perspective(600px) rotateY(0deg) rotateX(0deg) translateY(0)'
+  }
+
+  return (
+    <div ref={cardRef} className={className} onMouseMove={handleMove} onMouseLeave={handleLeave}>
+      {children}
+    </div>
+  )
+}
+
 export default function Services() {
   return (
     <section className="services section" id="services">
       <div className="container">
-        <div className="section-head">
+        <div className="section-head reveal">
           <span className="tag">What We Do</span>
           <h2>Our Services</h2>
         </div>
         <div className="services-grid">
-          {services.map(s => (
-            <div className="card" key={s.title}>
+          {services.map((s, i) => (
+            <TiltCard className={`card reveal reveal-delay-${(i % 3) + 1}`} key={s.title}>
               <div className="card-icon">{s.icon}</div>
               <h3>{s.title}</h3>
               <p>{s.desc}</p>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>

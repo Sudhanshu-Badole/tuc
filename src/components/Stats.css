@@ -2,7 +2,10 @@
 .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
 .stat h2 { font-size: 2.8rem; color: var(--primary-h); font-weight: 800; }
 .stat p { color: var(--text-muted); margin-top: 6px; }
+.stat { transition-delay: inherit; }
 
 @media (max-width: 640px) {
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats { padding: 50px 0; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .stat h2 { font-size: 2.2rem; }
 }

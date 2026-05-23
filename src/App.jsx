@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Background3D from './components/Background3D'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Stats from './components/Stats'
@@ -20,6 +21,8 @@ export default function App() {
 
   return (
     <>
+      <Background3D theme={theme} />
+      <div style={{ position: 'relative', zIndex: 1 }}>
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <Hero theme={theme} />
       <Stats />
@@ -29,6 +32,7 @@ export default function App() {
       <Testimonials />
       <Contact />
       <Footer />
+      </div>
     </>
   )
 }
