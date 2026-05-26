@@ -35,7 +35,12 @@
   max-width: 460px;
   height: auto;
   object-fit: contain;
-  border-radius: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+.hero-logo-img:hover {
+  transform: scale(1.02);
 }
 
 @media (max-width: 900px) {
